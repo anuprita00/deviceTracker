@@ -12,6 +12,7 @@ const io = socketio(server);
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+// app.set('views', path.join(__dirname, 'views'));
 
 // Listens for incoming WebSocket connections.
 // When a client connects, "connection" is logged to the console
@@ -29,7 +30,7 @@ io.on("connection", (socket) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('index');     
+    res.render('/views/index.ejs');     
 });
 
 server.listen(3000);
